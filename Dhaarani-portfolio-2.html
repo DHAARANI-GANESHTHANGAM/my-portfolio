@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#06121A">
+<meta name="author" content="Dhaarani Ganeshthangam">
+<meta name="description" content="Portfolio of Dhaarani Ganeshthangam - AI &amp; ML engineer and full-stack developer. A dementia care platform, AI agents, machine learning models and data visualisation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dhaarani Ganeshthangam - AI &amp; ML Engineer">
+<meta property="og:description" content="A dementia care platform, AI agents, machine learning models and data visualisation.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<title>Dhaarani Ganeshthangam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Sacramento&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   TOKENS — dark is the default world; light is the alternate
+   ============================================================ */
+:root{
+  --bg:#06121A;
+  --bg-2:#0A1C26;
+  --panel:rgba(255,255,255,.045);
+  --panel-2:rgba(255,255,255,.075);
+  --hair:rgba(255,255,255,.10);
+  --hair-2:rgba(255,255,255,.18);
+
+  --text:#EAF6F5;
+  --muted:#93AFB5;
+  --faint:#5E7B82;
+
+  --acc:#17C3B2;        /* teal — primary */
+  --acc-warm:#F2A93B;   /* amber — secondary */
+  --acc-cool:#0E9B96;   /* deep teal */
+  --acc-deep:#E07A4F;   /* terracotta */
+  --acc-sky:#5FBFD9;    /* pale sky */
+
+  --on-acc:#04231F;     /* text that sits on teal */
+  --on-warm:#241705;    /* text that sits on amber */
+
+  --glow-a:#0A5254;
+  --glow-b:#0C3653;
+  --glow-c:#4A3312;
+
+  --shadow-warm:0 14px 34px -14px rgba(242,169,59,.5);
+  --shadow-cool:0 14px 34px -14px rgba(23,195,178,.5);
+
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:22px;
+  --maxw:1180px;
+  --nav-h:78px;
+}
+:root[data-theme="light"]{
+  --bg:#F2F7F7;
+  --bg-2:#E6F0F0;
+  --panel:rgba(6,20,26,.035);
+  --panel-2:rgba(6,20,26,.06);
+  --hair:rgba(6,20,26,.11);
+  --hair-2:rgba(6,20,26,.20);
+
+  --text:#08222A;
+  --muted:#4B6A71;
+  --faint:#7A969C;
+
+  --acc:#0E9187;
+  --acc-warm:#C97D14;
+  --acc-cool:#0B7E7A;
+  --acc-deep:#C0603A;
+  --acc-sky:#2F93B0;
+
+  --on-acc:#FFFFFF;
+  --on-warm:#FFFFFF;
+
+  --glow-a:#BFE7E3;
+  --glow-b:#C7DCEA;
+  --glow-c:#F6E5C4;
+
+  --shadow-warm:0 14px 30px -16px rgba(201,125,20,.42);
+  --shadow-cool:0 14px 30px -16px rgba(14,145,135,.42);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px);}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Rubik","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:16.5px;line-height:1.7;font-weight:300;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:"Rubik",sans-serif;font-weight:600;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance;}
+p{margin:0;}
+a{color:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+::selection{background:var(--acc);color:var(--on-acc);}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px;}
+
+/* ============================================================
+   AMBIENT BACKDROP — gradient wash + concentric rings
+   ============================================================ */
+.bg{position:fixed;inset:0;z-index:-3;background:var(--bg);overflow:hidden;pointer-events:none;}
+.bg .wash{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(58vw 58vw at 6% 88%, var(--glow-a) 0%, transparent 62%),
+    radial-gradient(62vw 62vw at 92% 30%, var(--glow-b) 0%, transparent 60%),
+    radial-gradient(52vw 52vw at 60% -10%, var(--glow-c) 0%, transparent 62%);
+  opacity:.85;
+}
+.bg .rings{
+  position:absolute;right:-14vw;top:-10vh;width:86vw;height:120vh;
+  background:repeating-radial-gradient(circle at 46% 34%,
+    transparent 0 46px, var(--hair) 46px 47px);
+  -webkit-mask-image:radial-gradient(circle at 46% 34%, #000 12%, transparent 68%);
+  mask-image:radial-gradient(circle at 46% 34%, #000 12%, transparent 68%);
+  opacity:.75;
+}
+.bg .grain{
+  position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,.35) 100%);
+}
+:root[data-theme="light"] .bg .grain{background:radial-gradient(circle at 50% 50%, transparent 60%, rgba(255,255,255,.5) 100%);}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:90;
+  transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+  border-bottom:1px solid transparent;
+}
+.topbar.stuck{
+  background:color-mix(in srgb,var(--bg) 78%,transparent);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom-color:var(--hair);
+}
+.bar{height:var(--nav-h);display:flex;align-items:center;gap:20px;}
+.logo{
+  text-decoration:none;display:inline-flex;align-items:baseline;gap:6px;
+  font-size:15px;color:var(--muted);font-weight:300;letter-spacing:.02em;
+}
+.logo .sig{font-family:"Sacramento",cursive;font-size:34px;color:var(--text);line-height:1;letter-spacing:0;}
+.mainnav{margin-left:auto;display:flex;gap:4px;align-items:center;}
+.mainnav a{
+  position:relative;text-decoration:none;font-size:14.5px;font-weight:400;color:var(--muted);
+  padding:9px 14px;transition:color .22s ease;
+}
+.mainnav a::after{
+  content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--acc),var(--acc-warm));
+  transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1);
+}
+.mainnav a:hover{color:var(--text);}
+.mainnav a.on{color:var(--text);font-weight:500;}
+.mainnav a.on::after{transform:scaleX(1);}
+.bar-actions{display:flex;align-items:center;gap:8px;}
+.icon-btn{
+  width:38px;height:38px;display:grid;place-items:center;cursor:pointer;font-size:15px;
+  border:1px solid var(--hair);border-radius:11px;background:var(--panel);color:var(--muted);
+  transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.icon-btn:hover{color:var(--text);border-color:var(--hair-2);background:var(--panel-2);transform:translateY(-2px);}
+.burger{display:none;}
+@media (max-width:880px){
+  .mainnav{
+    position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
+    background:color-mix(in srgb,var(--bg) 96%,transparent);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--hair);padding:12px 24px 20px;
+    transform:translateY(-150%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  }
+  .mainnav.open{transform:translateY(0);}
+  .mainnav a{padding:12px 4px;font-size:16px;}
+  .mainnav a::after{left:4px;right:auto;width:22px;}
+  .burger{display:grid;}
+  .bar-actions{margin-left:auto;}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:var(--nav-h);overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center;width:100%;}
+.hero-grid > *{min-width:0;}
+.greet{font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:300;color:var(--text);margin-bottom:2px;}
+.hero h1{
+  font-size:clamp(2.6rem,6.4vw,4.6rem);font-weight:700;letter-spacing:-.035em;
+  color:var(--acc);margin-bottom:20px;line-height:1.05;
+}
+.hero h1 .ch{display:inline-block;will-change:transform,opacity;}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 16px 7px 13px;border-radius:999px;
+  border:1px solid var(--hair-2);background:var(--panel);
+  font-size:14px;font-weight:400;color:var(--text);margin-bottom:22px;
+  min-height:36px;
+}
+.pill .spark{color:var(--acc);font-size:13px;line-height:1;}
+.pill .caret{display:inline-block;width:2px;height:14px;background:var(--acc);vertical-align:-2px;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0}}
+.hero-lede{color:var(--muted);max-width:50ch;font-size:16px;line-height:1.8;margin-bottom:24px;}
+.hero-lede u{
+  text-decoration:none;color:var(--text);
+  border-bottom:1.5px solid var(--acc-warm);padding-bottom:1px;
+}
+.socials{display:flex;gap:16px;align-items:center;margin-bottom:28px;color:var(--muted);}
+.soc{display:grid;place-items:center;transition:color .2s ease,transform .2s ease;}
+.soc:hover{color:var(--text);transform:translateY(-3px);}
+.cta-row{display:flex;flex-wrap:wrap;gap:13px;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;
+  font-family:"Rubik",sans-serif;font-size:14.5px;font-weight:500;
+  padding:12px 22px;border-radius:9px;border:1px solid transparent;color:#fff;
+  transition:transform .2s cubic-bezier(.34,1.4,.64,1),box-shadow .25s ease,filter .2s ease;
+}
+.btn.cool{background:var(--acc-cool);color:var(--on-acc);box-shadow:var(--shadow-cool);}
+.btn.warm{background:var(--acc-warm);color:var(--on-warm);box-shadow:var(--shadow-warm);}
+.btn.ghost{background:var(--panel);border-color:var(--hair-2);color:var(--text);}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.08);}
+.btn .arw{transition:transform .2s ease;}
+.btn:hover .arw{transform:translateX(3px);}
+
+/* ---- portrait ---- */
+.portrait{
+  position:relative;align-self:end;justify-self:center;
+  width:min(520px,100%);height:min(78vh,660px);
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.portrait .halo{
+  position:absolute;bottom:6%;left:50%;transform:translateX(-50%);
+  width:88%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,var(--acc-cool) 0%,transparent 66%);
+  opacity:.32;filter:blur(28px);
+}
+.portrait .shot{
+  position:relative;max-height:100%;width:auto;max-width:100%;
+  object-fit:contain;object-position:bottom center;display:block;
+  will-change:transform;transition:transform .6s cubic-bezier(.22,1,.36,1);
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));
+}
+.chipf{
+  position:absolute;display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:999px;
+  background:color-mix(in srgb,var(--bg) 62%,transparent);
+  border:1px solid var(--hair-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.03em;color:var(--text);
+  white-space:nowrap;will-change:transform;
+}
+.chipf .d{width:7px;height:7px;border-radius:50%;}
+.chipf.f1{top:16%;left:-2%;}
+.chipf.f2{top:44%;right:-4%;}
+.chipf.f3{bottom:16%;left:-6%;}
+@media (max-width:940px){
+  .hero{min-height:auto;padding-bottom:40px;}
+  .hero-grid{grid-template-columns:1fr;gap:34px;}
+  .hero-copy{order:2;}
+  .portrait{order:1;height:min(52vh,420px);margin:0 auto;}
+  .chipf.f1{left:2%;}
+  .chipf.f2{right:2%;}
+  .chipf.f3{left:0;}
+}
+@media (max-width:520px){
+  .chipf{font-size:10px;padding:6px 11px;}
+}
+
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+.section{position:relative;padding:clamp(72px,9vw,120px) 0;}
+.head{text-align:center;max-width:640px;margin:0 auto clamp(38px,5vw,56px);}
+.script{
+  font-family:"Sacramento",cursive;font-size:clamp(1.7rem,3.4vw,2.3rem);
+  color:var(--acc-warm);line-height:1;display:block;margin-bottom:2px;
+}
+.head h2{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:600;}
+.head .rule{width:58px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--acc),var(--acc-warm));margin:16px auto 0;}
+.head p{color:var(--muted);font-size:15.5px;margin-top:16px;}
+
+.glass{
+  background:var(--panel);border:1px solid var(--hair);border-radius:var(--r-lg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center;}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+.about-body{color:var(--muted);}
+.about-body p + p{margin-top:16px;}
+.about-body strong{color:var(--text);font-weight:500;}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.stat{padding:24px 22px;border-radius:var(--r-md);transition:transform .28s cubic-bezier(.22,1,.36,1),border-color .28s ease;}
+.stat:hover{transform:translateY(-6px);border-color:var(--hair-2);}
+.stat .num{font-size:clamp(1.9rem,4.2vw,2.6rem);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+.stat:nth-child(1) .num{color:var(--acc);}
+.stat:nth-child(2) .num{color:var(--acc-cool);}
+.stat:nth-child(3) .num{color:var(--acc-sky);}
+.stat:nth-child(4) .num{color:var(--acc-deep);}
+.stat .lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:10px;}
+
+/* ============================================================
+   TILES (skills + tools)
+   ============================================================ */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:14px;}
+.tile{
+  padding:20px 12px;text-align:center;border-radius:var(--r-md);
+  transform-style:preserve-3d;will-change:transform;
+  transition:border-color .25s ease,background .25s ease;
+}
+.tile:hover{border-color:var(--hair-2);background:var(--panel-2);}
+.tile .glyph{
+  width:48px;height:48px;margin:0 auto 12px;border-radius:14px;display:grid;place-items:center;
+  font-family:"JetBrains Mono",monospace;font-weight:500;font-size:14.5px;color:#fff;letter-spacing:-.02em;
+}
+.tile .nm{font-weight:500;font-size:13.5px;}
+.tile .sub{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:4px;}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:34px;}
+.filters button{
+  font-size:13px;font-family:"Rubik",sans-serif;padding:8px 17px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--hair);background:transparent;color:var(--muted);transition:all .2s ease;
+}
+.filters button:hover{color:var(--text);border-color:var(--hair-2);}
+.filters button.on{background:linear-gradient(100deg,var(--acc),var(--acc-warm));border-color:transparent;color:var(--on-acc);font-weight:500;box-shadow:var(--shadow-cool);}
+
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:620px){.grid{grid-template-columns:1fr;}}
+.card{
+  grid-column:span 2;position:relative;display:flex;flex-direction:column;
+  padding:26px 24px;border-radius:var(--r-lg);text-decoration:none;overflow:hidden;
+  transform-style:preserve-3d;will-change:transform;
+  transition:border-color .3s ease,opacity .3s ease,background .3s ease;
+}
+.card.wide{grid-column:span 3;}
+@media (max-width:900px){.card,.card.wide{grid-column:span 1;}}
+.card:hover{border-color:var(--hair-2);background:var(--panel-2);}
+.card.dim{opacity:.24;}
+.card .shine{
+  position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(23,195,178,.15),transparent 62%);
+}
+.card:hover .shine{opacity:1;}
+.card .idx{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--faint);display:block;margin-bottom:12px;}
+.card h3{font-size:1.32rem;font-weight:600;margin-bottom:10px;}
+.card.wide h3{font-size:1.55rem;}
+.card .desc{font-size:14.5px;color:var(--muted);line-height:1.7;flex:1;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+.tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.05em;padding:4px 9px;border-radius:6px;background:var(--panel-2);color:var(--muted);border:1px solid var(--hair);}
+.card-foot{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);}
+.card-foot .lang{display:flex;align-items:center;gap:7px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-links{margin-left:auto;display:flex;gap:10px;align-items:center;}
+.goc{color:var(--faint);font-size:14px;line-height:1;transition:color .22s ease,transform .22s ease;}
+.card:hover .goc{color:var(--acc);transform:translate(2px,-2px);}
+.mini{
+  display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:"Rubik",sans-serif;
+  font-weight:500;font-size:12px;padding:6px 13px;border-radius:999px;
+  border:1px solid var(--hair-2);background:var(--panel-2);color:var(--text);
+  transition:background .2s ease,transform .2s ease,border-color .2s ease;
+}
+.mini:hover{background:var(--panel);transform:translateY(-2px);border-color:var(--acc);}
+.mini.live{background:linear-gradient(100deg,var(--acc-cool),var(--acc-sky));border-color:transparent;color:var(--on-acc);}
+.lock{
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;
+  padding:4px 11px;border-radius:999px;border:1px dashed var(--hair-2);color:var(--faint);
+}
+.card.locked{cursor:default;}
+.card.locked:hover{border-color:var(--hair);background:var(--panel);}
+.card.locked .shine{display:none;}
+.head p em{font-style:normal;color:var(--acc);}
+.ribbon{
+  position:absolute;top:16px;right:16px;font-family:"JetBrains Mono",monospace;font-size:9.5px;
+  letter-spacing:.14em;background:linear-gradient(100deg,var(--acc),var(--acc-warm));color:var(--on-acc);
+  padding:4px 10px;border-radius:999px;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-panel{padding:clamp(28px,4.6vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;border-radius:var(--r-lg);}
+@media (max-width:860px){.contact-panel{grid-template-columns:1fr;gap:32px;}}
+.contact-side h3{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;margin-bottom:14px;}
+.contact-side > p{color:var(--muted);font-size:15px;margin-bottom:24px;}
+.btn-stack{display:flex;flex-direction:column;gap:14px;}
+.btn.big{
+  justify-content:flex-start;gap:14px;padding:17px 20px;border-radius:15px;
+  font-size:15.5px;font-weight:500;text-align:left;
+}
+.btn.big .bi{
+  width:38px;height:38px;flex:0 0 38px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(0,0,0,.15);color:inherit;
+}
+.btn.big .bt{display:flex;flex-direction:column;line-height:1.25;}
+.btn.big .bt small{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.72;font-weight:400;}
+.btn.big .go{margin-left:auto;font-size:15px;opacity:.85;transition:transform .2s ease;}
+.btn.big:hover .go{transform:translateX(4px);}
+.links{display:flex;flex-direction:column;gap:10px;}
+.link-row{
+  display:flex;align-items:center;gap:14px;text-decoration:none;padding:14px 16px;border-radius:var(--r-md);
+  border:1px solid var(--hair);background:var(--panel);
+  transition:border-color .22s ease,transform .22s ease,background .22s ease;
+}
+.link-row:hover{border-color:var(--acc);transform:translateX(5px);background:var(--panel-2);}
+.link-row .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
+.link-row .v{font-weight:500;font-size:14.5px;}
+.link-row .go{margin-left:auto;color:var(--faint);}
+.link-row .ic{
+  width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:grid;place-items:center;
+  border:1px solid var(--hair);background:var(--panel-2);color:var(--muted);
+  transition:color .22s ease,border-color .22s ease;
+}
+.link-row:hover .ic{color:var(--acc);border-color:var(--acc);}
+
+/* ============================================================
+   MAIL CHOOSER
+   ============================================================ */
+.mailmodal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:22px;}
+.mailmodal[hidden]{display:none !important;}
+.mm-backdrop{position:absolute;inset:0;background:rgba(6,3,14,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fadeIn .25s ease;}
+:root[data-theme="light"] .mm-backdrop{background:rgba(20,14,38,.42);}
+.mm-card{
+  position:relative;width:100%;max-width:400px;padding:28px 26px 24px;
+  border-radius:20px;border:1px solid var(--hair-2);
+  background:color-mix(in srgb,var(--bg) 92%,transparent);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.8);
+  animation:popIn .32s cubic-bezier(.22,1.2,.4,1);
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.mm-card h4{font-size:1.22rem;font-weight:600;margin-bottom:4px;}
+.mm-sub{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);margin-bottom:20px;}
+.mm-x{
+  position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:9px;cursor:pointer;
+  border:1px solid var(--hair);background:var(--panel);color:var(--muted);font-size:13px;line-height:1;
+  display:grid;place-items:center;transition:color .2s ease,border-color .2s ease;
+}
+.mm-x:hover{color:var(--text);border-color:var(--hair-2);}
+.mm-opts{display:flex;flex-direction:column;gap:9px;}
+.mm-opt{
+  display:flex;align-items:center;gap:13px;text-decoration:none;padding:12px 14px;border-radius:13px;
+  border:1px solid var(--hair);background:var(--panel);font-size:14.5px;font-weight:400;color:var(--text);
+  transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.mm-opt:hover{border-color:var(--acc);background:var(--panel-2);transform:translateX(4px);}
+.mm-opt .badge{
+  width:32px;height:32px;flex:0 0 32px;border-radius:9px;display:grid;place-items:center;
+  font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:500;color:#fff;
+}
+.mm-opt .go{margin-left:auto;color:var(--faint);font-size:13px;}
+.mm-copy{
+  width:100%;margin-top:14px;padding:11px;border-radius:13px;cursor:pointer;
+  border:1px dashed var(--hair-2);background:transparent;color:var(--muted);
+  font-family:"Rubik",sans-serif;font-size:13.5px;transition:color .2s ease,border-color .2s ease;
+}
+.mm-copy:hover{color:var(--text);border-color:var(--acc);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot{
+  border-top:1px solid var(--hair);margin-top:34px;padding:28px 0 44px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--faint);
+}
+.foot .heart{color:var(--acc);}
+.to-top{
+  border:1px solid var(--hair);background:transparent;color:var(--muted);border-radius:999px;
+  padding:8px 16px;cursor:pointer;font-family:"Rubik",sans-serif;font-size:12px;transition:all .2s ease;
+}
+.to-top:hover{color:var(--text);border-color:var(--hair-2);transform:translateY(-3px);}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.rv.in{opacity:1;transform:none;}
+.rv[data-d="1"]{transition-delay:.07s;}
+.rv[data-d="2"]{transition-delay:.14s;}
+.rv[data-d="3"]{transition-delay:.21s;}
+.rv[data-d="4"]{transition-delay:.28s;}
+.rv[data-d="5"]{transition-delay:.35s;}
+.rv[data-d="6"]{transition-delay:.42s;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  .rv{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+
+<div class="bg" aria-hidden="true">
+  <div class="wash"></div>
+  <div class="rings"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<div class="topbar" id="topbar">
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="Dhaarani — home">
+      <span>&lt;</span><span class="sig">Dhaarani</span><span>/&gt;</span>
+    </a>
+    <nav class="mainnav" id="mainnav" aria-label="Main">
+      <a href="#home" class="on">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="bar-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme">☀</button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="greet">Vanakkam, I'm</p>
+      <h1 id="bigName" data-name="Dhaarani"></h1>
+      <div class="pill"><span class="spark">✦</span><span id="typed"></span><span class="caret"></span></div>
+      <p class="hero-lede">Started with small Python scripts that solved one annoying thing at a time. Now I build <u>AI systems</u> that carry real weight — a care platform for dementia patients, agents that draft proposals and answer in Slack, and <u>models</u> that ship to users instead of sitting in a notebook.</p>
+      <div class="socials">
+        <a class="soc" href="https://github.com/DHAARANI-GANESHTHANGAM" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.6 18.4.5 12 .5z"/></svg>
+        </a>
+        <a class="soc" href="mailto:dhaaru.g@gmail.com" aria-label="Email" data-mail>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.8" width="19" height="14.4" rx="2.4"/><path d="m3.2 7.2 8.8 5.8 8.8-5.8"/></svg>
+        </a>
+        <a class="soc" href="#contact" aria-label="Résumé" id="resumeSoc">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11.5"/><path d="m7.6 10.6 4.4 4.4 4.4-4.4"/><path d="M4.5 20h15"/></svg>
+        </a>
+      </div>
+      <div class="cta-row">
+        <a class="btn cool" href="#contact">✉ Contact Me</a>
+        <a class="btn warm" href="#work">View Portfolio <span class="arw">➜</span></a>
+      </div>
+    </div>
+
+    <div class="portrait" id="portrait">
+      <span class="halo" aria-hidden="true"></span>
+      <img class="shot" id="shot" alt="Dhaarani Ganeshthangam" src="">
+      <span class="chipf f1" data-depth="16"><span class="d" style="background:#17C3B2"></span>AI Agents</span>
+      <span class="chipf f2" data-depth="26"><span class="d" style="background:#F2A93B"></span>Machine Learning</span>
+      <span class="chipf f3" data-depth="10"><span class="d" style="background:#5FBFD9"></span>Full-stack</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="script">But who am I?</span>
+      <h2>About Me</h2>
+      <div class="rule"></div>
+      <p>My story in a nutshell ;)</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-body rv" data-d="1">
+        <p>Hey, I'm Dhaarani — a developer who likes the part where an idea stops being a notebook and starts being something people can open in a browser.</p>
+        <p>Most of my recent work is <strong>AI applications</strong>. The one I\u2019m proudest of is a <strong>dementia care platform</strong> \u2014 an Android app over a Flask API where voice assessments, speech analysis and a PubMedBERT retrieval layer in pgvector do real work for patients and the people caring for them.</p>
+        <p>Alongside it, <strong>PROPOSAI</strong>, an RFP generator with a JavaScript front end over a Python reasoning layer, shipped through sixteen production deploys \u2014 and a <strong>Slack AI agent</strong> in Node that keeps its own memory so a conversation picks up where it left off.</p>
+        <p>The other half is <strong>data</strong>: training the small, useful kind of model and actually deploying it — an insurance-cost predictor served from a pickled regressor, a stock-portfolio analysis app, and a long tail of Python experiments that feed the bigger builds.</p>
+        <p>Common thread: I'd rather have something deployed and imperfect than perfect and local.</p>
+      </div>
+      <div class="stats rv" data-d="2">
+        <div class="stat glass"><div class="num" data-count="22">0</div><div class="lbl">Repositories</div></div>
+        <div class="stat glass"><div class="num" data-count="78">0</div><div class="lbl">Contributions / yr</div></div>
+        <div class="stat glass"><div class="num" data-count="16">0</div><div class="lbl">Production deploys</div></div>
+        <div class="stat glass"><div class="num" data-count="6">0</div><div class="lbl">Core languages</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="script">What do I know?</span>
+      <h2>Skills</h2>
+      <div class="rule"></div>
+      <p>The languages and libraries my repositories are actually written in.</p>
+    </div>
+    <div class="tiles rv" data-d="1" id="skillTiles"></div>
+  </div>
+</section>
+
+<!-- ===================== TOOLS ===================== -->
+<section class="section" id="tools" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="script">What do I use?</span>
+      <h2>Tools</h2>
+      <div class="rule"></div>
+      <p>Where the code gets written, versioned and shipped.</p>
+    </div>
+    <div class="tiles rv" data-d="1" id="toolTiles"></div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="script">What have I done?</span>
+      <h2>Projects</h2>
+      <div class="rule"></div>
+      <p>Every card maps to a real repository. The ones marked <em>private</em> are university team and coursework repos that can't be opened publicly — happy to walk through any of them.</p>
+    </div>
+    <div class="filters rv" data-d="1" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="ai">AI &amp; Agents</button>
+      <button data-f="ml">Machine Learning</button>
+      <button data-f="viz">Data Viz</button>
+      <button data-f="web">Web</button>
+      <button data-f="systems">Systems</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="script">What's next?</span>
+      <h2>Get In Touch</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact-panel glass rv" data-d="1">
+      <div class="contact-side">
+        <h3>Got something that needs building?</h3>
+        <p>Open to engineering roles and collaborations in AI, ML and web. Email is the fastest route — I read everything, and I reply.</p>
+      </div>
+      <div class="btn-stack">
+        <a class="btn warm big" href="mailto:dhaaru.g@gmail.com" data-mail>
+          <span class="bi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.8" width="19" height="14.4" rx="2.4"/><path d="m3.2 7.2 8.8 5.8 8.8-5.8"/></svg></span>
+          <span class="bt"><small>Email</small>dhaaru.g@gmail.com</span>
+          <span class="go">→</span>
+        </a>
+        <a class="btn warm big" href="https://github.com/DHAARANI-GANESHTHANGAM" target="_blank" rel="noopener">
+          <span class="bi"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+          <span class="bt"><small>GitHub</small>DHAARANI-GANESHTHANGAM</span>
+          <span class="go">↗</span>
+        </a>
+        <a class="btn warm big" href="#" id="resumeLink">
+          <span class="bi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11.5"/><path d="m7.6 10.6 4.4 4.4 4.4-4.4"/><path d="M4.5 20h15"/></svg></span>
+          <span class="bt"><small>Résumé</small><span id="resumeLabel">Download PDF</span></span>
+          <span class="go">↓</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot">
+      <span>Made with HTML, CSS, JavaScript and a dash of <span class="heart">♥</span> by Dhaarani.</span>
+      <button class="to-top" id="toTop" type="button">Back to top ↑</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAIL CHOOSER ===================== -->
+<div class="mailmodal" id="mailModal" hidden>
+  <div class="mm-backdrop" data-close></div>
+  <div class="mm-card" role="dialog" aria-modal="true" aria-labelledby="mmTitle">
+    <button class="mm-x" type="button" data-close aria-label="Close">✕</button>
+    <h4 id="mmTitle">Write to me</h4>
+    <p class="mm-sub">dhaaru.g@gmail.com</p>
+    <div class="mm-opts">
+      <a class="mm-opt" href="#" data-svc="gmail" target="_blank" rel="noopener">
+        <span class="badge" style="background:#D64B3C">M</span>Gmail<span class="go">↗</span>
+      </a>
+      <a class="mm-opt" href="#" data-svc="outlook" target="_blank" rel="noopener">
+        <span class="badge" style="background:#1B6FC0">O</span>Outlook<span class="go">↗</span>
+      </a>
+      <a class="mm-opt" href="#" data-svc="yahoo" target="_blank" rel="noopener">
+        <span class="badge" style="background:#5F2A9E">Y</span>Yahoo Mail<span class="go">↗</span>
+      </a>
+      <a class="mm-opt" href="#" data-svc="default">
+        <span class="badge" style="background:#4A4658">✉</span>Default mail app<span class="go">→</span>
+      </a>
+    </div>
+    <button class="mm-copy" type="button" id="mmCopy">Copy email address</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* =============== EDIT THESE TWO LINES =============== */
+  var PHOTO_URL  = "dhaarani-photo.png";   /* the cut-out PNG, kept next to index.html */
+  var RESUME_URL = "";   /* e.g. "resume.pdf" */
+  /* ==================================================== */
+
+  var ROLES = ["AI & ML Engineer","Full-stack Developer","Python Developer","Problem Solver"];
+
+  var SKILLS = [
+    {ab:"Py",  nm:"Python",       sub:"language", c:"#3776AB"},
+    {ab:"JS",  nm:"JavaScript",   sub:"language", c:"#D9A400"},
+    {ab:"</>", nm:"HTML & CSS",   sub:"markup",   c:"#E2542C"},
+    {ab:"{ }", nm:"SCSS",         sub:"styling",  c:"#C6538C"},
+    {ab:"Nd",  nm:"Node.js",      sub:"runtime",  c:"#3C873A"},
+    {ab:"Re",  nm:"React",        sub:"frontend", c:"#1E88A8"},
+    {ab:"sk",  nm:"scikit-learn", sub:"ml",       c:"#D9741A"},
+    {ab:"pd",  nm:"pandas",       sub:"data",     c:"#4B2E83"},
+    {ab:"Fl",  nm:"Flask",        sub:"backend",  c:"#4A4F57"},
+    {ab:"St",  nm:"Streamlit",    sub:"ml apps",  c:"#C7343B"},
+    {ab:"Jv",  nm:"Java",         sub:"language", c:"#B0692A"},
+    {ab:"C++", nm:"C++",          sub:"language", c:"#6E4C9B"},
+    {ab:"D3",  nm:"D3.js",        sub:"data viz", c:"#D96A32"},
+    {ab:"Pg",  nm:"PostgreSQL",   sub:"database", c:"#2C6E8C"},
+    {ab:"Kt",  nm:"Kotlin",       sub:"language", c:"#7A4FC0"},
+    {ab:"And", nm:"Android",      sub:"mobile",   c:"#2E8B57"},
+    {ab:"RAG", nm:"RAG / LLM",    sub:"ai",       c:"#C0603A"}
+  ];
+  var TOOLS = [
+    {ab:"Git", nm:"Git",     sub:"versioning", c:"#D8542B"},
+    {ab:"GH",  nm:"GitHub",  sub:"code host",  c:"#3A3A46"},
+    {ab:"VS",  nm:"VS Code", sub:"editor",     c:"#1F6FC0"},
+    {ab:"Jp",  nm:"Jupyter", sub:"notebooks",  c:"#DB6D28"},
+    {ab:"▲",   nm:"Vercel",  sub:"hosting",    c:"#3A3A46"},
+    {ab:"Rd",  nm:"Render",  sub:"hosting",    c:"#2C7A8C"},
+    {ab:"Hk",  nm:"Heroku",  sub:"hosting",    c:"#5C4B9E"},
+    {ab:"✽",   nm:"Postman", sub:"api testing",c:"#D9601F"}
+  ];
+
+  var PROJECTS = [
+    {name:"Dementia Care Management", cat:["ai","ml","systems"], wide:true, featured:true,
+     desc:"A care platform for dementia patients and the families and clinicians around them. An Android app in Kotlin and Jetpack Compose sits over a Flask API, covering patient profiles, activity, behaviour, meal and sleep logging, MMSE memory assessments and trend analytics. Voice assessments run through Vapi AI with on-device speech as a fallback, then AssemblyAI handles transcription, speaker diarisation and sentiment. Clinical answers come from a retrieval layer \u2014 PubMedBERT embeddings stored in PostgreSQL 17 with pgvector \u2014 answered by Gemini or GPT-4o behind a swappable backend flag, with JWT and email OTP guarding access. Capstone team project at ASU.",
+     tags:["Kotlin","Jetpack Compose","Flask","PostgreSQL","pgvector","RAG","Gemini","AssemblyAI"],
+     color:"#17C3B2", repo:null},
+
+    {name:"PROPOSAI", cat:["ai","web"], wide:true,
+     desc:"An AI Request-For-Proposal generator: a JavaScript front end over a Python reasoning layer that turns a brief into a structured, sectioned proposal draft. Two branches, 34 commits and sixteen production deploys behind it.",
+     tags:["JavaScript","Python","LLM","React","Vercel","Render"], color:"#17C3B2",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/PROPOSAI", live:"https://proposai-app.vercel.app"},
+
+    {name:"Slack AI Agent", cat:["ai"], wide:true,
+     desc:"A Node.js agent that lives inside Slack \u2014 listens on the events API, reasons over the thread, and persists context through its own data layer so conversations pick up where they left off.",
+     tags:["Node.js","Slack API","Persistence"], color:"#F2A93B",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/SLACK-AI-AGENT"},
+
+    {name:"Secure Drone System", cat:["systems"], wide:true,
+     desc:"A multi-drone cyber-physical system simulation in Java: task allocation, path planning, coverage monitoring and command dispatch across an agent, sensor and environment model \u2014 rendered in both a 2D view and an isometric 3D one.",
+     tags:["Java","Multi-agent","Path planning","Simulation","CPS"], color:"#5FBFD9",
+     repo:"https://github.com/Manavpatel06/Secure-Drone-System"},
+
+    {name:"Film & Genre Network", cat:["viz","web"], wide:true,
+     desc:"A D3.js force-directed graph linking films to their genres across six decades. Nodes are sized by return on investment and coloured by budget tier, films rated above 7 get an outline, and each decade\u2019s dataset loads itself as you scroll into that section.",
+     tags:["D3.js","JavaScript","SVG","Data viz","CSV"], color:"#E07A4F",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/forme"},
+
+    {name:"Medical Insurance Prediction", cat:["ml"],
+     desc:"A regression model that estimates insurance cost from patient attributes, packaged as a pickled estimator and served as a deployable web app.",
+     tags:["Python","scikit-learn","Streamlit","Heroku"], color:"#17C3B2",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/Medical_Insurance_Prediction"},
+
+    {name:"Stock Portfolio", cat:["ml","web"],
+     desc:"A Python web app for exploring and analysing a stock portfolio \u2014 data pull, aggregation, and a hosted front end for the numbers.",
+     tags:["Python","Data analysis","Web app"], color:"#F2A93B",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/stock_portfolio"},
+
+    {name:"Team30", cat:["web"],
+     desc:"A collaborative front-end build in SCSS and vanilla JavaScript \u2014 component styling, a layout system and responsive behaviour for a team project.",
+     tags:["SCSS","HTML","JavaScript"], color:"#5FBFD9",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/Team30"},
+
+    {name:"Python Mini Projects", cat:["ml"],
+     desc:"A running workbench of small Python builds \u2014 where algorithms, scripts and language features get tried out before they land in something bigger.",
+     tags:["Python","Algorithms","Scripting"], color:"#E07A4F",
+     repo:"https://github.com/DHAARANI-GANESHTHANGAM/python_practice_mini_projects"},
+
+    {name:"CSE 578 \u2014 Visualisation Group Project", cat:["viz"], priv:true,
+     desc:"A four-person data visualisation project for ASU\u2019s CSE 578, built with D3 on a shared dataset. Team repository \u2014 add a line here about what the dataset was and which views you owned.",
+     tags:["D3.js","Data viz","Team project"], color:"#17C3B2", repo:null},
+
+    {name:"CSE 578 \u2014 Assignment Series", cat:["viz"], priv:true,
+     desc:"Five graded D3 assignments for ASU\u2019s CSE 578 Data Visualization course, from a lollipop chart through to larger interactive views. Five separate course repositories.",
+     tags:["D3.js","JavaScript","Charts"], color:"#F2A93B", repo:null},
+
+    {name:"SER 502 \u2014 Spectra Language", cat:["systems"], priv:true,
+     desc:"Team 11\u2019s language project for ASU\u2019s SER 502: designing Spectra, then building the grammar, parser and runtime that execute it. Team repository \u2014 worth a line on which layer you built.",
+     tags:["Language design","Parser","Runtime","Team project"], color:"#5FBFD9", repo:null},
+
+    {name:"SER 515 \u2014 Group 22", cat:["systems"], priv:true,
+     desc:"Group project for ASU\u2019s SER 515 software engineering course. Team repository \u2014 tell me what it does and I\u2019ll write this card properly.",
+     tags:["Software engineering","Team project"], color:"#17C3B2", repo:null},
+
+    {name:"AGV Control Software", cat:["systems"], priv:true,
+     desc:"Autonomous ground vehicle work in C++ across three repositories \u2014 navigation, control loops and sensor integration for a four-wheel platform, built on ROS with CMake and Makefile builds.",
+     tags:["C++","ROS","Makefile","Control"], color:"#F2A93B", repo:null}
+  ];
+
+  /* ---------- Portrait ---------- */
+  var shot = document.getElementById("shot");
+  var PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 620">' +
+    '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0%" stop-color="#17C3B2"/><stop offset="50%" stop-color="#5FBFD9"/><stop offset="100%" stop-color="#F2A93B"/>' +
+    '</linearGradient></defs>' +
+    '<circle cx="210" cy="185" r="108" fill="url(#g)" opacity="0.9"/>' +
+    '<path d="M50 620c0-97 72-176 160-176s160 79 160 176z" fill="url(#g)" opacity="0.9"/>' +
+    '<text x="210" y="600" text-anchor="middle" font-family="Rubik,sans-serif" font-size="17" fill="#ffffff" opacity="0.75">add your photo</text>' +
+    '</svg>');
+  shot.src = PHOTO_URL || PLACEHOLDER;
+  if(!PHOTO_URL){ shot.alt = "Portrait placeholder — set PHOTO_URL in the code"; }
+
+  /* ---------- Hero name ---------- */
+  var big = document.getElementById("bigName");
+  var name = big.getAttribute("data-name") || "";
+  name.split("").forEach(function(c, i){
+    var s = document.createElement("span");
+    s.className = "ch";
+    s.textContent = c;
+    if(!reduced){
+      s.style.transform = "translateY(60%)";
+      s.style.opacity = "0";
+      s.style.transition = "transform .7s cubic-bezier(.2,1.2,.4,1) " + (0.15 + i*0.04) + "s, opacity .5s ease " + (0.15 + i*0.04) + "s";
+    }
+    big.appendChild(s);
+  });
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      big.querySelectorAll(".ch").forEach(function(s){ s.style.transform = "translateY(0)"; s.style.opacity = "1"; });
+    });
+  });
+
+  /* ---------- Typewriter ---------- */
+  var typed = document.getElementById("typed");
+  if(reduced){
+    typed.textContent = ROLES[0];
+  } else {
+    var ri = 0, ci = 0, del = false;
+    (function tick(){
+      var w = ROLES[ri];
+      ci += del ? -1 : 1;
+      typed.textContent = w.slice(0, ci);
+      var wait = del ? 42 : 76;
+      if(!del && ci === w.length){ del = true; wait = 1600; }
+      else if(del && ci === 0){ del = false; ri = (ri + 1) % ROLES.length; wait = 300; }
+      setTimeout(tick, wait);
+    })();
+  }
+
+  /* ---------- Tiles ---------- */
+  function renderTiles(id, list){
+    document.getElementById(id).innerHTML = list.map(function(t){
+      return '<div class="tile glass"><div class="glyph" style="background:' + t.c + '">' + t.ab + '</div>' +
+             '<div class="nm">' + t.nm + '</div><div class="sub">' + t.sub + '</div></div>';
+    }).join("");
+  }
+  renderTiles("skillTiles", SKILLS);
+  renderTiles("toolTiles", TOOLS);
+
+  /* ---------- Project cards ---------- */
+  var grid = document.getElementById("grid");
+  PROJECTS.forEach(function(p, i){
+    var el = document.createElement(p.repo ? "a" : "div");
+    el.className = "card glass rv" + (p.wide ? " wide" : "") + (p.repo ? "" : " locked");
+    el.setAttribute("data-cat", p.cat.join(" "));
+    el.setAttribute("data-d", String(Math.min(i, 6)));
+    if(p.repo){ el.href = p.repo; el.target = "_blank"; el.rel = "noopener"; }
+    var links = "";
+    if(p.live){ links += '<a class="mini live" href="' + p.live + '" target="_blank" rel="noopener" data-stop>Live demo ↗</a>'; }
+    links += p.repo
+      ? '<span class="goc" aria-hidden="true">↗</span>'
+      : '<span class="lock">PRIVATE</span>';
+    el.innerHTML =
+      '<span class="shine"></span>' +
+      (p.featured ? '<span class="ribbon">FLAGSHIP</span>' : '') +
+      '<span class="idx">' + String(i+1).padStart(2,"0") + '</span>' +
+      '<h3>' + p.name + '</h3>' +
+      '<p class="desc">' + p.desc + '</p>' +
+      '<div class="tags">' + p.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join("") + '</div>' +
+      '<div class="card-foot"><span class="card-links">' + links + '</span></div>';
+    grid.appendChild(el);
+  });
+  grid.addEventListener("click", function(e){ if(e.target.closest("[data-stop]")) e.stopPropagation(); });
+
+  /* ---------- Filters ---------- */
+  var filters = document.getElementById("filters");
+  filters.addEventListener("click", function(e){
+    var b = e.target.closest("button");
+    if(!b) return;
+    filters.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on");
+    var f = b.getAttribute("data-f");
+    grid.querySelectorAll(".card").forEach(function(c){
+      var ok = f === "all" || (c.getAttribute("data-cat") || "").split(" ").indexOf(f) > -1;
+      c.classList.toggle("dim", !ok);
+    });
+  });
+
+  /* ---------- Tilt / shine ---------- */
+  var hoverable = !reduced && window.matchMedia("(hover:hover)").matches;
+  if(hoverable){
+    document.addEventListener("mousemove", function(e){
+      var t = e.target.closest(".card, .tile");
+      if(!t) return;
+      var r = t.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      t.style.setProperty("--mx", (px*100) + "%");
+      t.style.setProperty("--my", (py*100) + "%");
+      var amt = t.classList.contains("tile") ? 11 : 7;
+      t.style.transform = "perspective(820px) rotateX(" + ((0.5-py)*amt).toFixed(2) + "deg) rotateY(" + ((px-0.5)*amt*1.2).toFixed(2) + "deg) translateY(-5px)";
+    });
+    document.addEventListener("mouseout", function(e){
+      var t = e.target.closest(".card, .tile");
+      if(t && !t.contains(e.relatedTarget)) t.style.transform = "";
+    });
+  }
+
+  /* ---------- Portrait + chip parallax ---------- */
+  if(!reduced){
+    var chips = [].slice.call(document.querySelectorAll(".chipf[data-depth]"));
+    var mx = 0, my = 0, cx = 0, cy = 0;
+    window.addEventListener("mousemove", function(e){
+      mx = (e.clientX / window.innerWidth) - 0.5;
+      my = (e.clientY / window.innerHeight) - 0.5;
+    }, {passive:true});
+    (function loop(){
+      cx += (mx - cx) * 0.055;
+      cy += (my - cy) * 0.055;
+      shot.style.transform = "translate3d(" + (cx*16).toFixed(2) + "px," + (cy*10).toFixed(2) + "px,0) rotate(" + (cx*1.2).toFixed(2) + "deg)";
+      chips.forEach(function(el){
+        var d = parseFloat(el.getAttribute("data-depth")) || 10;
+        el.style.transform = "translate3d(" + (-cx*d).toFixed(2) + "px," + (-cy*d*0.7).toFixed(2) + "px,0)";
+      });
+      requestAnimationFrame(loop);
+    })();
+    shot.style.transition = "none";
+  }
+
+  /* ---------- Reveal + counters ---------- */
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } });
+  }, {threshold:0.1, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+  var cio = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(!x.isIntersecting) return;
+      var el = x.target; cio.unobserve(el);
+      var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+      if(reduced){ el.textContent = target; return; }
+      var start = performance.now();
+      (function step(now){
+        var t = Math.min((now - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        if(t < 1) requestAnimationFrame(step);
+      })(start);
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll("[data-count]").forEach(function(el){ cio.observe(el); });
+
+  /* ---------- Nav ---------- */
+  var topbar = document.getElementById("topbar");
+  window.addEventListener("scroll", function(){ topbar.classList.toggle("stuck", window.scrollY > 10); }, {passive:true});
+
+  var navLinks = [].slice.call(document.querySelectorAll(".mainnav a"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  var sio = new IntersectionObserver(function(en){
+    en.forEach(function(x){
+      if(!x.isIntersecting) return;
+      var i = sections.indexOf(x.target);
+      if(i < 0) return;
+      navLinks.forEach(function(a){ a.classList.remove("on"); });
+      navLinks[i].classList.add("on");
+    });
+  }, {threshold:0.2, rootMargin:"-12% 0px -55% 0px"});
+  sections.forEach(function(s){ if(s) sio.observe(s); });
+
+  var burger = document.getElementById("burger"), mainnav = document.getElementById("mainnav");
+  burger.addEventListener("click", function(){
+    var open = mainnav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+    burger.textContent = open ? "✕" : "☰";
+  });
+  mainnav.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){
+      mainnav.classList.remove("open");
+      burger.setAttribute("aria-expanded","false");
+      burger.textContent = "☰";
+    }
+  });
+
+  /* ---------- Theme (dark by default) ---------- */
+  var root = document.documentElement, tb = document.getElementById("themeBtn");
+  function paint(){ tb.textContent = root.getAttribute("data-theme") === "light" ? "☾" : "☀"; }
+  try{
+    if(localStorage.getItem("dg-theme") === "light") root.setAttribute("data-theme","light");
+  }catch(err){}
+  paint();
+  tb.addEventListener("click", function(){
+    var light = root.getAttribute("data-theme") === "light";
+    if(light) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","light");
+    try{ localStorage.setItem("dg-theme", light ? "dark" : "light"); }catch(err){}
+    paint();
+  });
+
+  /* ---------- Mail chooser ---------- */
+  var EMAIL = "dhaaru.g@gmail.com";
+  var SUBJECT = "Hello Dhaarani";
+  var modal = document.getElementById("mailModal");
+  var lastFocus = null;
+
+  var COMPOSE = {
+    gmail:   "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(EMAIL) + "&su=" + encodeURIComponent(SUBJECT),
+    outlook: "https://outlook.live.com/mail/0/deeplink/compose?to=" + encodeURIComponent(EMAIL) + "&subject=" + encodeURIComponent(SUBJECT),
+    yahoo:   "https://compose.mail.yahoo.com/?to=" + encodeURIComponent(EMAIL) + "&subject=" + encodeURIComponent(SUBJECT),
+    "default": "mailto:" + EMAIL + "?subject=" + encodeURIComponent(SUBJECT)
+  };
+  modal.querySelectorAll("[data-svc]").forEach(function(a){
+    a.href = COMPOSE[a.getAttribute("data-svc")];
+  });
+
+  function openMail(){
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    var first = modal.querySelector(".mm-opt");
+    if(first) first.focus();
+  }
+  function closeMail(){
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll("[data-mail]").forEach(function(el){
+    el.addEventListener("click", function(e){ e.preventDefault(); openMail(); });
+  });
+  modal.addEventListener("click", function(e){
+    if(e.target.closest("[data-close]")) closeMail();
+    else if(e.target.closest(".mm-opt")) setTimeout(closeMail, 120);
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && !modal.hidden) closeMail();
+  });
+
+  var copyBtn = document.getElementById("mmCopy");
+  copyBtn.addEventListener("click", function(){
+    var done = function(){
+      copyBtn.textContent = "Copied ✓";
+      setTimeout(function(){ copyBtn.textContent = "Copy email address"; }, 1800);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(EMAIL).then(done, done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = EMAIL; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); }catch(err){}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  /* ---------- Résumé ---------- */
+  var rl = document.getElementById("resumeLink");
+  if(RESUME_URL){
+    rl.href = RESUME_URL; rl.target = "_blank"; rl.rel = "noopener";
+    document.getElementById("resumeSoc").href = RESUME_URL;
+  } else {
+    rl.addEventListener("click", function(e){
+      e.preventDefault();
+      document.getElementById("resumeLabel").textContent = "Set RESUME_URL in the code";
+    });
+  }
+
+  document.getElementById("toTop").addEventListener("click", function(){
+    window.scrollTo({top:0, behavior: reduced ? "auto" : "smooth"});
+  });
+})();
+</script>
+
+</body>
+</html>
